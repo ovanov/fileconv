@@ -9,7 +9,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
   name = 'fileconv',
   packages = find_packages(),
-  version = '0.0.1',
+  version = '0.0.2',
   license='MIT',
   description = 'This CLI converts text an MS Word and MS Excel files to PDF files',
   long_description=long_description,
@@ -21,7 +21,7 @@ setup(
   platforms='any',
   install_requires=[
           'fpdf >= 1.7.2',
-          'pywin31 >= 227',
+          'pywin32 >= 227',
           'tqdm >= 4.61.2'
       ],
   classifiers=[

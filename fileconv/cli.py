@@ -18,7 +18,7 @@ from typing import Dict
 from tqdm.std import tqdm
 
 
-from Converter import Convert
+from .Converter import Convert
 
 def argument_parser() -> Dict:
     parser = argparse.ArgumentParser('fileconv',description='Command line tool for file conversion to PDF. Supports MS Word, Excel and txt files.')
