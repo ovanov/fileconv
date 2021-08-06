@@ -28,13 +28,13 @@ def argument_parser() -> Dict:
     default=sys.stdin)
 
     parser.add_argument('--output', '-o',
-    help='Give the path and the name of the output directory. If no outhput falg was given, each PDF will be placed in the same directory as the processed file',
+    help='(required) Give the path and the name of the output directory.',
     nargs='?',
     type=str,
     default=False)
 
-
     return parser
+
 
 def crawler(p, output):
     """
@@ -63,9 +63,10 @@ def crawler(p, output):
                 
                 else:
                     pass
-
+    
         else:
             raise KeyError("The directory is empty")
+    return
 
 
 def main():
@@ -88,6 +89,7 @@ def main():
 
 
     crawler(path, output)
+    return
 
 if __name__ == "__main__":
     main()

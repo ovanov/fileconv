@@ -10,7 +10,6 @@ import os
 
 import win32com.client
 from fpdf import FPDF
-from docx2pdf import convert
 
 
 class Convert():
@@ -63,12 +62,11 @@ class Convert():
         pdf.set_font("Arial", size = 12)
 
         # open the text file in read mode
-        f = open(text, "r")
 
+        with open(text, "r") as f:
         # insert the texts in pdf
-        for x in f:
-            pdf.cell(200, 10, txt = x, ln = 1, align = 'C')
-
+            for x in f:
+                pdf.cell(200, 10, txt = x, ln = 1, align = 'C')
         # save the pdf with name .pdf
         file_loc_and_name = str(os.path.join(args[1], args[0][:-4])) + ".pdf" 
         pdf.output(file_loc_and_name) 
