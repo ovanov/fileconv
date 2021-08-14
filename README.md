@@ -1,4 +1,15 @@
-# Convert your files to PDF's with fileconv
+<h1 align="center">fileconv</h1>
+<p align="center">Convert your files to PDF's</p>
+
+<p align="center">
+	<a href="https://github.com/ovanov/fileconv#ovanov"><img src="https://img.shields.io/github/languages/code-size/ovanov/fileconv?color=greem&label=package%20size" height="20"/></a>
+    <a href="https://github.com/ovanov/fileconv#ovanov"><img src="https://img.shields.io/github/license/ovanov/fileconv?color=black" height="20"/></a>
+</p>
+
+<p align="center"><a href="https://github.com/ovanov/fileconv#ovanov"><img src="https://github.com/ovanov/gifs/blob/main/filconvdemo.gif" width="100%"/></a></p><br/>
+
+
+## :computer: How does it work?
 
 **fileconv** gives you the possibility to conveniently convert your *text*, MS *Word* or MS *Excel* files to PDF-A2 standard, by using a simple and intuitive command line interface.
 
@@ -7,7 +18,7 @@ This program was made to convert digital born documents to PDF files, in order t
 
 This Project has been brought to life with the help of the [AfZ](https://www.afz.ethz.ch/) (Archive of Contemporary History) at [ETH Zürich](https://ethz.ch/en.html).
 
-# Overview
+## Overview
 
 The fileconv tool is mainly used as a fast solution for file conversion via the command line. The *Conversion* package of this library is also available for in depth use in your python code. In order to use its methods, simply import the fileconv package.
 
@@ -56,14 +67,14 @@ The program takes a directory, which is populated with **at least one** (!) file
 
 The program 'walks' through any directory structure and places all the files in a single folder that was specified in the --output flag.
 
-Depending on your directory structure and the amount of files, the process can take up some time. With 1000 directories, 15'000 files to process, from which 800 are MS Office conversions, the program needs 2 minutes and 30 seconds to finish. To not let you worry, we have implemented a progress bar that looks like this while running:
+Depending on your directory structure, the amount of files and your CPU, the process can take some time. With 1000 directories, 15'000 files to process, from which 800 are MS Office conversions, the program needs about 2 minutes and 30 seconds to finish. To not let you worry, we have implemented a progress bar that looks like this while running:
 
     5%|██████▌                                                             | 55/1003 [00:08<01:23, 11.38it/s]
 
 This tool was based on the excellent [tqdm](https://github.com/tqdm/tqdm) library.
 
 
-### Errors
+### :bug: Common errors
 
 The program has one weakness regarding its running time. The pywin32 library has to 'open' the according MS programs in the background in order to properly convert the files. This process is prone to an error, *if the program is interrupted while running*, i.e. by pressing **CTRL + C**. In this case, fileconv will prompt an error the next time it converts a MS file type, because the background process has not been closed. To prevent this, one can open a *terminal* and type the following commands:
 
