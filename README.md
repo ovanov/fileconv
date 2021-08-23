@@ -76,6 +76,8 @@ This tool was based on the excellent [tqdm](https://github.com/tqdm/tqdm) librar
 
 ### :bug: Common errors
 
+**1. interrupting the programm**
+
 The program has one weakness regarding its running time. The pywin32 library has to 'open' the according MS programs in the background in order to properly convert the files. This process is prone to an error, *if the program is interrupted while running*, i.e. by pressing **CTRL + C**. In this case, fileconv will prompt an error the next time it converts a MS file type, because the background process has not been closed. To prevent this, one can open a *terminal* and type the following commands:
 
     $ python
@@ -91,3 +93,9 @@ this will open the python interpreter
     >>> win32com.client.Dispatch('Excel.Application').Close()
 
 This should prevent the error from occurring again.
+
+**2. cross platform compatibility**
+
+Even though this tool ist intended and written to work on all operating systems, the [pywin32](https://github.com/mhammond/pywin32) library seems only to be stable on Mircrosoft Windows. UNIX based file systems, like MacOS and Linux tend to prompt errors during the libraries installation. As referred in this [issue thread](https://github.com/malwaredllc/byob/issues/19) the library is mostly developed on Windows and therefore causing instability when on other systems. The library is probably working on fixes and is potentially fixing this error in future versions, which will be included in this package.
+
+We are also looking for stable and reliable alternatives, but right now pywin32 seems to be the best option.
