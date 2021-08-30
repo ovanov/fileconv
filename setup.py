@@ -22,6 +22,7 @@ setup(
   install_requires=[
           'fpdf >= 1.7.2',
           'pywin32 >= 227',
+          'PyPDF2 >= 1.26.0', 
           'tqdm >= 4.61.2'
       ],
   classifiers=[
