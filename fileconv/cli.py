@@ -18,7 +18,8 @@ from typing import Dict
 from tqdm.std import tqdm
 
 
-from .Converter import Convert
+from .office_to_pdf import MS
+from .txt_to_pdf import Conv
 
 def argument_parser() -> Dict:
     parser = argparse.ArgumentParser('fileconv',description='Command line tool for file conversion to PDF. Supports MS Word, Excel and txt files.')
@@ -51,15 +52,15 @@ def crawler(p, output):
 
                 if ext == ".docx" or ext == ".doc":
                     file = os.path.join(root, filename)
-                    Convert.word_to_pdf(file, ext, filename, output)
+                    MS.word_to_pdf(file, ext, filename, output)
 
                 elif ext == ".xlsx" or ext == ".xls":
                     file = os.path.join(root, filename)
-                    Convert.excel_to_pdf(file, ext, filename, output)
+                    MS.excel_to_pdf(file, ext, filename, output)
 
                 elif ext == ".txt":
                     file = os.path.join(root, filename)
-                    Convert.txt_to_pdf(file, filename, output)
+                    Conv.txt_to_pdf(file, filename, output) #TODO add the txt class
                 
                 else:
                     pass

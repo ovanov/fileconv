@@ -1,2 +1,5 @@
+from os import walk
 from . import cli
-from fileconv.Converter import Convert
+from fileconv.office_to_pdf import MS
+from fileconv.txt_to_pdf import Conv
+from fileconv.pdf_to_txt import Pdf
