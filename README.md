@@ -4,6 +4,8 @@
 <p align="center">
 	<a href="https://github.com/ovanov/fileconv#ovanov"><img src="https://img.shields.io/github/languages/code-size/ovanov/fileconv?color=greem&label=package%20size" height="20"/></a>
     <a href="https://github.com/ovanov/fileconv#ovanov"><img src="https://img.shields.io/github/license/ovanov/fileconv?color=black" height="20"/></a>
+    <a href="https://pypi.org/project/fileconv"><img src="https://img.shields.io/pypi/pyversions/fileconv">
+    <a href="https://github.com/ovanov/fileconv/blob/main/setup.py"><img src="https://img.shields.io/pypi/wheel/fileconv?color=yellow">
 </p>
 
 <p align="center"><a href="https://github.com/ovanov/fileconv#ovanov"><img src="https://github.com/ovanov/gifs/blob/main/filconvdemo.gif" width="100%"/></a></p><br/>
@@ -34,6 +36,8 @@ At the moment, the package supports files that are
 
 Support for more file types will be addes in the future.
 
+The package is now also able to convert PDF files back to .txt files.
+
 ## Guide
 
 The following shows how to get and use **fileconv**.
@@ -42,15 +46,15 @@ The following shows how to get and use **fileconv**.
 
     $ pip install fileconv
 
-Consider that you might have to add the installation folder to your PATH.
+Consider that you might have to add the installation folder to your `PATH`.
 
 If you would rather like to customize the code to your needs, grab a stable version under "Releases". All the files are extensively commented as well, in order to make the files more user friendly.
 
 ### Usage
 
-When in a terminal specify:
+When in a terminal, specify:
 
-    $ fileconv path/to/dir --output path/to/output/dir
+    $ fileconv --pdf path/to/dir --output path/to/output/dir
 
 The program takes a directory, which is populated with **at least one** (!) file or subdirectory and takes an output location as a positional argument. It doesn't matter if your files are in a nested structure as shown in the example below:
 
@@ -65,13 +69,21 @@ The program takes a directory, which is populated with **at least one** (!) file
     └── ...
 
 
-The program 'walks' through any directory structure and places all the files in a single folder that was specified in the --output flag.
+The program 'walks' through any directory structure and places all the files in a single folder that was specified in the `--output` flag.
 
 Depending on your directory structure, the amount of files and your CPU, the process can take some time. With 1000 directories, 15'000 files to process, from which 800 are MS Office conversions, the program needs about 2 minutes and 30 seconds to finish. To not let you worry, we have implemented a progress bar that looks like this while running:
 
     5%|██████▌                                                             | 55/1003 [00:08<01:23, 11.38it/s]
 
 This tool was based on the excellent [tqdm](https://github.com/tqdm/tqdm) library.
+
+### Convert PDF files back to text
+
+In order to convert PDF's back to text, use the `--txt` flag as shown bellow:
+
+    $ fileconv --pdf path/to/dir --output path/to/output/dir
+
+Note, that the larger the files are, the longer the conversion takes.
 
 
 ### :bug: Common errors
@@ -82,7 +94,7 @@ The program has one weakness regarding its running time. The pywin32 library has
 
     $ python
 
-or (depending on your OS)
+or (depending on your OS and python versions) 
 
     $ python3
 
@@ -96,6 +108,6 @@ This should prevent the error from occurring again.
 
 **2. cross platform compatibility**
 
-Even though this tool ist intended and written to work on all operating systems, the [pywin32](https://github.com/mhammond/pywin32) library seems only to be stable on Mircrosoft Windows. UNIX based file systems, like MacOS and Linux tend to prompt errors during the libraries installation. As referred in this [issue thread](https://github.com/malwaredllc/byob/issues/19) the library is mostly developed on Windows and therefore causing instability when on other systems. The library is probably working on fixes and is potentially fixing this error in future versions, which will be included in this package.
+Even though this tool is intended and written to work on all operating systems, the [pywin32](https://github.com/mhammond/pywin32) library seems only to be reliable on Mircrosoft Windows. UNIX based file systems, like MacOS and Linux tend to prompt errors during the library's installation. As referred in this [issue thread](https://github.com/malwaredllc/byob/issues/19) the library is mostly developed on Windows and therefore causing instability when used on other systems. The library is probably working on fixes and is potentially fixing this error in future versions, which will be included in this package as well.
 
-We are also looking for stable and reliable alternatives, but right now pywin32 seems to be the best option.
+We are also looking for stable and reliable alternatives, but right now [pywin32](https://github.com/mhammond/pywin32) seems to be the best option.

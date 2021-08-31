@@ -19,17 +19,16 @@ class Pdf():
         """
         converts pdf to txt and uses filepath from converter
         """
+        content = ''
         with open(text, "rb") as f:
             #create reader variable that will read the pdf_obj
             pdfreader = PyPDF2.PdfFileReader(f)
-            #This will store the number of pages of this pdf file
-            x = pdfreader.numPages
-            #create a variable that will select the selected number of pages
-            pageobj = pdfreader.getPage(x+1)
-            #(x+1) because python indentation starts with 0.
-            #create text variable which will store all text datafrom pdf file
-            txt = pageobj.extractText()
+            
+            for num in range(pdfreader.numPages):
+                content += pdfreader.getPage(num).extractText()
 
-        file_loc_and_name = str(os.path.join(args[1], args[0][:-4])) + ".pdf" 
-        with open(file_loc_and_name, "w") as T:
-            T.writelines(txt)
+        file_loc_and_name = str(os.path.join(args[2], args[1][:-4])) + ".txt" 
+        with open(file_loc_and_name, "w", encoding='utf-8') as T:
+            T.writelines(content)
+
+        return
