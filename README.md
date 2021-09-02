@@ -8,7 +8,7 @@
     <a href="https://github.com/ovanov/fileconv/blob/main/setup.py"><img src="https://img.shields.io/pypi/wheel/fileconv?color=yellow">
 </p>
 
-<p align="center"><a href="https://github.com/ovanov/fileconv#ovanov"><img src="https://github.com/ovanov/gifs/blob/main/filconvdemo.gif" width="100%"/></a></p><br/>
+<p align="center"><a href="https://github.com/ovanov/fileconv#ovanov"><img src="https://github.com/ovanov/gifs/blob/main/filconvdemo.gif" width="130%"/></a></p><br/>
 
 
 ## :computer: How does it work?
@@ -81,7 +81,9 @@ This tool was based on the excellent [tqdm](https://github.com/tqdm/tqdm) librar
 
 In order to convert PDF's back to text, use the `--txt` flag as shown bellow:
 
-    $ fileconv --pdf path/to/dir --output path/to/output/dir
+    $ fileconv --txt path/to/dir --output path/to/output/dir
+	    
+<p align="center"><a href="https://github.com/ovanov/fileconv#ovanov"><img src="https://github.com/ovanov/gifs/blob/main/filconvdemo_txt.gif" width="100%"/></a></p><br/>
 
 Note, that the larger the files are, the longer the conversion takes.
 
